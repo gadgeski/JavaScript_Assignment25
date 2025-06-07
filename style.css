@@ -1,0 +1,146 @@
+body {
+  font-family: "Share Tech Mono", monospace; /* デジタルなフォント */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #34495e;
+  color: #ecf0f1;
+}
+
+h1 {
+  color: #f1c40f;
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+
+.stopwatch-container {
+  background-color: #2c3e50;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.display {
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 40px;
+  background-color: #1a242f;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #546a7f;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.control-button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.control-button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+.start {
+  background-color: #2ecc71;
+}
+
+.start:hover:not(:disabled) {
+  background-color: #27ae60;
+}
+
+.stop {
+  background-color: #e74c3c;
+}
+
+.stop:hover:not(:disabled) {
+  background-color: #c0392b;
+}
+
+.reset {
+  background-color: #3498db;
+}
+
+.reset:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+/*===========================================================
+
+Box
+
+===========================================================*/
+.box {
+  width: 720px;
+  height: 480px;
+  margin: 13% auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4682b4;
+  font-size: 32px;
+  font-weight: bold;
+  position: relative;
+  transition: 0.4s;
+}
+.box::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  transition: 0.4s;
+  transition-delay: 0.5s;
+}
+.box::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  transition: 0.4s;
+  transition-delay: 0.5s;
+}
+.box:hover:before,
+.box:hover::after {
+  width: 100%;
+  height: 100%;
+  border-color: rgba(255, 255, 255, 0.3);
+  transition-delay: 0s;
+}
+.box:hover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  transition-delay: 0.3s;
+}
